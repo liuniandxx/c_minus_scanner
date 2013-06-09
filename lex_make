@@ -1,0 +1,12 @@
+main: main.o util.o lex.yy.o
+      gcc -o main main.o util.o lex.yy.o
+main.o: globals.h scan.h util.h
+	gcc -c main.c
+lex.yy.o: globals.h scan.h util.h
+       gcc -c lex.yy.c
+util.o: globals.h util.h
+	gcc -c util.c
+
+clean:
+	rm main.o lex.o util.o
+	
